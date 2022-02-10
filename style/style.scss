@@ -8,7 +8,6 @@ $color1: rgba(255, 94, 0, 0.712);
 }
 
 html {
-    font-size: 20px;
     font-family: Helvetica, sans-serif;;
 }
 
@@ -23,46 +22,48 @@ input, label, input:focus, label:focus {
     background-color: transparent;
 }
 
+h2 {
+    margin: 13px 0 13px 0;
+    font-size: 1.5rem;
+}
+
 .main-container {
     width: 100%;
     height: 580px;
 
     margin: 0;
-    padding: 2%;
     display: grid;
     grid-template: 
     "h1 h1" 1fr
     "sec1 sec2" 6fr
     /4fr 6fr
     ;
-
-    h1 {
-        padding: 20px;
-        text-align: center;
-    }
 }
 
 .main-title {
     grid-area: h1;
     background-color: aqua;
+    padding: 40px;
+    text-align: center;
 }
 
 .section-1 {
     grid-area: sec1;
     background-color: red;
+    padding: 0 40px 0 40px;
+}
 
-    h2 {
-        margin: 10px;
-    }
+.box-title, label {
+    font-size: .8rem;
 }
 
 .form-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    gap: $space-between;
+    gap: 25px;
+    column-gap: 85px;
 
-    margin: $space-between;
 
     div {
         background-color: antiquewhite;
@@ -106,11 +107,13 @@ input, label, input:focus, label:focus {
 }
 
 .form-box {
+    display: grid;
 
     input[type="text"] {
         padding: 10px 0;
         background-color: transparent;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.466);
+        border-bottom: 1.2px solid black;
+        font-size: 1.1rem;
 
         width: 200px;
         display: block;
@@ -118,35 +121,77 @@ input, label, input:focus, label:focus {
     }
 }
 
+.box-title {
+    padding: 10px 0 5px 0;
+}
+
+.btn-container {
+    grid-column: 1/3;
+    display: flex;
+}
+
+.btn {
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    height: 60px;
+    font-size: 1.3rem;
+
+    border-radius: 8px;
+    
+}
+
+.clear {
+    border: 1px solid black;
+    margin-right: 10px;
+}
+
+.submit {
+    background-color: orange;
+}
+
+//section 2 
+
 .section-2 {
     grid-area: sec2;
     background-color: greenyellow;
-
-    h2 {
-        margin: $space-between;
-    }
+    padding: 0 40px 0 40px;
 }
 
 .cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: $space-between;
-
-    margin: $space-between;
+    row-gap: 35px;
+    column-gap: 50px;
 
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     background-color: blueviolet;
     text-align: center;
+    width: 100%;
+    height: 80px;
+
+    h3{
+        font-weight: 600;
+    }
+
+    h3, p {
+        font-size: 1rem;
+        padding: 6px 0 6px 0;
+    }
 }
+
+
 
 .graphic-container {
     height: 200px;
     background-color: azure;
-
-    margin: $space-between;
 }
 
 .checked {
