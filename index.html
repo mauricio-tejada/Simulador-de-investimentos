@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <h1 class="main-title">Simulador de investimentos</h1>
+
+        <section class="section-1">
+
+            <h2>Simulador</h2>
+
+            <form class="form-container" action="">
+
+                <div class="form-box">
+                    <label class="box-title">Rendimento</label>
+                    <div class="radio-container">
+                        <div class="radio-box">
+                            <input type="radio" name="rendimento" id="bruto">
+                            <label for="bruto">Bruto</label>
+                        </div>
+
+                        <div class="radio-box">
+                            <input type="radio" name="rendimento" id="liquido">
+                            <label for="liquido">Liquido</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-box">
+                    <label class="box-title">Tipo de indexação</label>
+                    <div class="radio-container">
+                        <div class="radio-box">
+                            <input type="radio" name="indexacao" id="pre">
+                            <label for="pre">PRÉ</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="indexacao" id="pos">
+                            <label for="pos">POS</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" name="indexacao" id="fixado">
+                            <label for="fixado">FIXADO</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-box">
+                    <label class="box-title" for="aporte-inicial">Aporte inicial</label>
+                    <input type="text" id="aporte-inicial">
+                </div>
+
+                <div class="form-box">
+                    <label class="box-title" for="prazo">Prazo (em meses)</label>
+                    <input type="text" id="prazo">
+                </div>
+
+                <div class="form-box">
+                    <label class="box-title" for="IPCA">IPCA (ao ano)</label>
+                    <input type="text" id="IPCA">
+                </div>
+
+                <div class="form-box">
+                    <label class="box-title" for="aporte-mensal">Aporte mensal</label>
+                    <input type="text" id="aporte-mensal">
+                </div>
+
+                <div class="form-box">
+                    <label class="box-title" for="rentabilidade">Rentabilidade</label>
+                    <input type="text" id="rentabilidade">
+                </div>
+
+                <div class="form-box">
+                    <label class="box-title" for="CDI">CDI (ao ano)</label>
+                    <input type="text" id="CDI">
+                </div>
+
+                <input class="btn clear" type="button" id="limpar" value="Limpar campos">
+
+                <input class="btn submit" type="submit" id="simular" value="Simular">
+
+            </form>
+
+        </section>
+
+        <section class="section-2">
+
+            <h2>Resultado da simulação</h2>
+
+            <div class="cards-container">
+
+                <div class="card">
+                    <h3 class="card-title">Valor final bruto</h3>
+                    <p class="card-content">R$ 123,12</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Alíquota do IR</h3>
+                    <p class="card-content">20%</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Valor pago em IR</h3>
+                    <p class="card-content">R$ 123,12</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Valor final líquido</h3>
+                    <p class="card-content">R$ 123,12</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Valor total investido</h3>
+                    <p class="card-content">R$ 123,12</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Ganho líquido</h3>
+                    <p class="card-content">R$ 123,12</p>
+                </div>
+
+            </div>
+
+            <div class="graphic-container"></div>
+
+        </section>
+
+
+
+
+    </div>
+
+</body>
+
+</html>

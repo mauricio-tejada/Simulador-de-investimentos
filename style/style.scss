@@ -1,0 +1,165 @@
+$space-between: 20px;
+$color1: rgba(255, 94, 0, 0.712);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 20px;
+    font-family: Helvetica, sans-serif;;
+}
+
+body {
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+input, label, input:focus, label:focus {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.main-container {
+    width: 100%;
+    height: 580px;
+
+    margin: 0;
+    padding: 2%;
+    display: grid;
+    grid-template: 
+    "h1 h1" 1fr
+    "sec1 sec2" 6fr
+    /4fr 6fr
+    ;
+
+    h1 {
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+.main-title {
+    grid-area: h1;
+    background-color: aqua;
+}
+
+.section-1 {
+    grid-area: sec1;
+    background-color: red;
+
+    h2 {
+        margin: 10px;
+    }
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: $space-between;
+
+    margin: $space-between;
+
+    div {
+        background-color: antiquewhite;
+    }
+}
+
+.radio-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    div:first-of-type {
+        border-radius: 5px 0 0 5px;
+    }
+
+    div:last-of-type {
+        border-radius: 0 5px 5px 0;
+    }
+    
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 50%;
+        
+        border: 1px solid black;
+
+        label {
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        input[type="radio"] {
+            opacity: 0;
+            width: 0;
+            cursor: pointer;
+        }
+
+    }
+}
+
+.form-box {
+
+    input[type="text"] {
+        padding: 10px 0;
+        background-color: transparent;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.466);
+
+        width: 200px;
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+.section-2 {
+    grid-area: sec2;
+    background-color: greenyellow;
+
+    h2 {
+        margin: $space-between;
+    }
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: $space-between;
+
+    margin: $space-between;
+
+}
+
+.card {
+    background-color: blueviolet;
+    text-align: center;
+}
+
+.graphic-container {
+    height: 200px;
+    background-color: azure;
+
+    margin: $space-between;
+}
+
+.checked {
+    background-color: $color1;
+    color: white;
+
+    :nth-child(2) {
+        display: inline;
+        padding-left: 10px;
+        font-size: .6rem;
+    }
+
+    :nth-child(3) {
+    padding-left: 0;
+    }
+}

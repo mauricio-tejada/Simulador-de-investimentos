@@ -1,0 +1,165 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+input, label, input:focus, label:focus {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.main-container {
+  width: 100%;
+  height: 580px;
+  margin: 0;
+  padding: 2%;
+  display: -ms-grid;
+  display: grid;
+  grid-template: "h1 h1" 1fr "sec1 sec2" 6fr /4fr 6fr;
+}
+
+.main-container h1 {
+  padding: 20px;
+  text-align: center;
+}
+
+.main-title {
+  grid-area: h1;
+  background-color: aqua;
+}
+
+.section-1 {
+  grid-area: sec1;
+  background-color: red;
+}
+
+.section-1 h2 {
+  margin: 10px;
+}
+
+.form-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  gap: 20px;
+  margin: 20px;
+}
+
+.form-container div {
+  background-color: antiquewhite;
+}
+
+.radio-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.radio-container div:first-of-type {
+  border-radius: 5px 0 0 5px;
+}
+
+.radio-container div:last-of-type {
+  border-radius: 0 5px 5px 0;
+}
+
+.radio-container div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  border: 1px solid black;
+}
+
+.radio-container div label {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.radio-container div input[type="radio"] {
+  opacity: 0;
+  width: 0;
+  cursor: pointer;
+}
+
+.form-box input[type="text"] {
+  padding: 10px 0;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.466);
+  width: 200px;
+  display: block;
+  margin: 10px 0;
+}
+
+.section-2 {
+  grid-area: sec2;
+  background-color: greenyellow;
+}
+
+.section-2 h2 {
+  margin: 20px;
+}
+
+.cards-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  margin: 20px;
+}
+
+.card {
+  background-color: blueviolet;
+  text-align: center;
+}
+
+.graphic-container {
+  height: 200px;
+  background-color: azure;
+  margin: 20px;
+}
+
+.checked {
+  background-color: rgba(255, 94, 0, 0.712);
+  color: white;
+}
+
+.checked :nth-child(2) {
+  display: inline;
+  padding-left: 10px;
+  font-size: .6rem;
+}
+
+.checked :nth-child(3) {
+  padding-left: 0;
+}
+/*# sourceMappingURL=style.css.map */
