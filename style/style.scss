@@ -1,5 +1,15 @@
-$space-between: 20px;
-$color1: rgba(255, 94, 0, 0.712);
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&family=Spartan:wght@100;300;400;800;900&display=swap');
+
+$font-color-title: rgb(0,0,0);
+$font-color-title-2: rgb(45,45,45);
+$font-color-checked: rgb(254,251,249);
+$font-color-profit: rgb(41, 168, 18);
+$font-color-error: rgb(239,43,43);
+$bg-btn: rgb(150,150,150);
+$bg-btn-2: rgb(237,142,83);
+$bg-card: rgb(244,244,244);
+$bg-main: rgb(239,239,239);
+
 
 * {
     padding: 0;
@@ -8,7 +18,7 @@ $color1: rgba(255, 94, 0, 0.712);
 }
 
 html {
-    font-family: Helvetica, sans-serif;;
+    font-family: "roboto", sans-serif;;
 }
 
 body {
@@ -28,10 +38,14 @@ h2 {
 }
 
 .main-container {
+    background-color: $bg-main;
+
     width: 100%;
+    max-width: 1300px;
     height: 580px;
 
-    margin: 0;
+    margin: 0 auto;
+    margin-top: 2%;
     display: grid;
     grid-template: 
     "h1 h1" 1fr
@@ -42,14 +56,12 @@ h2 {
 
 .main-title {
     grid-area: h1;
-    background-color: aqua;
-    padding: 40px;
+    padding: 20px;
     text-align: center;
 }
 
 .section-1 {
     grid-area: sec1;
-    background-color: red;
     padding: 0 40px 0 40px;
 }
 
@@ -61,13 +73,10 @@ h2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    gap: 25px;
+    gap: 20px;
     column-gap: 85px;
 
-
-    div {
-        background-color: antiquewhite;
-    }
+    color: $font-color-title-2;
 }
 
 .radio-container {
@@ -87,10 +96,12 @@ h2 {
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
 
         width: 50%;
         
         border: 1px solid black;
+    
 
         label {
             cursor: pointer;
@@ -106,8 +117,11 @@ h2 {
     }
 }
 
+
+
 .form-box {
     display: grid;
+    height: 75px;
 
     input[type="text"] {
         padding: 10px 0;
@@ -117,8 +131,12 @@ h2 {
 
         width: 200px;
         display: block;
-        margin: 10px 0;
+        margin: 0;
     }
+}
+
+#aporte-inicial:invalid {
+    background-color: aqua;
 }
 
 .box-title {
@@ -147,14 +165,13 @@ h2 {
 }
 
 .submit {
-    background-color: orange;
+    background-color: $bg-btn;
 }
 
 //section 2 
 
 .section-2 {
     grid-area: sec2;
-    background-color: greenyellow;
     padding: 0 40px 0 40px;
 }
 
@@ -165,6 +182,16 @@ h2 {
     row-gap: 35px;
     column-gap: 50px;
 
+    margin-top: 30px;
+
+    :nth-child(4), :nth-child(6) {
+
+        p {
+            color: $font-color-profit;
+            font-weight: 500;
+        }
+    }
+
 }
 
 .card {
@@ -172,10 +199,12 @@ h2 {
     flex-direction: column;
     justify-content: space-between;
 
-    background-color: blueviolet;
+    background-color: $bg-card;
     text-align: center;
     width: 100%;
-    height: 80px;
+    height: 75px;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.329);
 
     h3{
         font-weight: 600;
@@ -185,26 +214,25 @@ h2 {
         font-size: 1rem;
         padding: 6px 0 6px 0;
     }
+
 }
 
 
 
 .graphic-container {
     height: 200px;
-    background-color: azure;
+    background-color: rgb(28, 184, 184);
 }
 
 .checked {
-    background-color: $color1;
-    color: white;
+    background-color: $bg-btn-2;
+    color: $font-color-checked;
 
     :nth-child(2) {
-        display: inline;
-        padding-left: 10px;
-        font-size: .6rem;
+        font-weight: 900;
     }
 
     :nth-child(3) {
-    padding-left: 0;
+        padding: 0;
     }
 }

@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <link rel="stylesheet" href="./style/style.css">
 </head>
@@ -28,13 +27,15 @@
                 <div class="form-box">
                     <label class="box-title">Rendimento</label>
                     <div class="radio-container">
-                        <div class="radio-box">
+                        <div class="radio-box two-element">
                             <input type="radio" name="rendimento" id="bruto">
+                            <i class="las"></i>
                             <label for="bruto">Bruto</label>
                         </div>
 
-                        <div class="radio-box">
+                        <div class="radio-box two-element">
                             <input type="radio" name="rendimento" id="liquido">
+                            <i class="las"></i>
                             <label for="liquido">Liquido</label>
                         </div>
                     </div>
@@ -45,14 +46,17 @@
                     <div class="radio-container">
                         <div class="radio-box">
                             <input type="radio" name="indexacao" id="pre">
+                            <i class="las"></i>
                             <label for="pre">PRÉ</label>
                         </div>
                         <div class="radio-box">
                             <input type="radio" name="indexacao" id="pos">
+                            <i class="las"></i>
                             <label for="pos">POS</label>
                         </div>
                         <div class="radio-box">
                             <input type="radio" name="indexacao" id="fixado">
+                            <i class="las"></i>
                             <label for="fixado">FIXADO</label>
                         </div>
                     </div>
@@ -60,7 +64,7 @@
 
                 <div class="form-box">
                     <label class="box-title" for="aporte-inicial">Aporte inicial</label>
-                    <input type="text" id="aporte-inicial">
+                    <input type="number" id="aporte-inicial">
                 </div>
 
                 <div class="form-box">
@@ -138,6 +142,8 @@
 
     </div>
 
+    <script src="./script.js"></script>
+    
 </body>
 
 </html>
