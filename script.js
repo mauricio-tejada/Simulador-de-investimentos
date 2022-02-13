@@ -15,7 +15,13 @@ let rendimentoChecked = document.querySelector
 
 //função que aplica a classe no parent
 function applyClass(e, className) {
-    e.parentNode.classList.add(`${className}`)
+    if (Array.isArray(e) === true) {
+        e.forEach(e => {
+            e.parentNode.classList.add(`${className}`)
+        })
+    } else {
+        e.parentNode.classList.add(`${className}`)
+    }
 }
 
 
@@ -66,8 +72,29 @@ inputsRendimento.forEach(e => {
 
         rendimentoChecked = document.querySelector
             ('input[name="rendimento"]:checked')
-        
+
         applyClassNext(rendimentoChecked, 'la-check')
         applyClass(rendimentoChecked, 'checked')
     })
 })
+
+const inputs = Array.from(document.querySelectorAll('input[type="text"]'))
+
+const submit = document.querySelector('input[type="submit"]')
+
+//função que valida um array de text inputs e retorna os vazios e NaN
+function inputValidate(array) {
+    let invalidInputs = []
+    array.forEach(e => {
+        if ((e.value === '') || isNaN(e.value)) {
+            invalidInputs.push(e)
+        }
+    })
+    return invalidInputs
+}
+
+submit.addEventListener('click', e => {
+    e.preventDefault()
+    applyClass(inputValidate(inputs), 'error')
+})
+

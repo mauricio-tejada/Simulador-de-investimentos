@@ -42,10 +42,9 @@ h2 {
 
     width: 100%;
     max-width: 1300px;
-    height: 580px;
+    height: 100vh;
 
     margin: 0 auto;
-    margin-top: 2%;
     display: grid;
     grid-template: 
     "h1 h1" 1fr
@@ -133,10 +132,26 @@ h2 {
         display: block;
         margin: 0;
     }
+
+    span {
+        opacity: 0;
+    }
 }
 
-#aporte-inicial:invalid {
-    background-color: aqua;
+.error {
+
+    input[type="text"] {
+        border-bottom: 1.2px solid $font-color-error;
+    }
+
+    span {
+        opacity: 1;
+    }
+
+    label, span {
+    color: $font-color-error;
+    font-size: .8rem;
+    }
 }
 
 .box-title {
@@ -166,6 +181,10 @@ h2 {
 
 .submit {
     background-color: $bg-btn;
+}
+
+.submit-ok {
+    background-color: $bg-btn-2;
 }
 
 //section 2 

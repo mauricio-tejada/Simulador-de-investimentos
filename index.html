@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <link rel="stylesheet" href="./style/style.css">
 </head>
@@ -22,7 +23,7 @@
 
             <h2>Simulador</h2>
 
-            <form class="form-container" action="">
+            <form class="form-container" name="form" action="">
 
                 <div class="form-box">
                     <label class="box-title">Rendimento</label>
@@ -64,12 +65,26 @@
 
                 <div class="form-box">
                     <label class="box-title" for="aporte-inicial">Aporte inicial</label>
-                    <input type="number" id="aporte-inicial">
+                    <input type="text" id="aporte-inicial">
+                    <span>Aporte deve ser um número</span>
                 </div>
 
                 <div class="form-box">
+                    <label class="box-title" for="aporte-mensal">Aporte mensal</label>
+                    <input type="text" id="aporte-mensal">
+                    <span>Aporte deve ser um número</span>
+                </div>
+                
+                <div class="form-box">
                     <label class="box-title" for="prazo">Prazo (em meses)</label>
                     <input type="text" id="prazo">
+                    <span>Prazo deve ser um número</span>
+                </div>
+
+                <div class="form-box">
+                    <label class="box-title" for="rentabilidade">Rentabilidade</label>
+                    <input type="text" id="rentabilidade">
+                    <span>Rentabilidade deve ser um número</span>
                 </div>
 
                 <div class="form-box">
@@ -78,24 +93,15 @@
                 </div>
 
                 <div class="form-box">
-                    <label class="box-title" for="aporte-mensal">Aporte mensal</label>
-                    <input type="text" id="aporte-mensal">
-                </div>
-
-                <div class="form-box">
-                    <label class="box-title" for="rentabilidade">Rentabilidade</label>
-                    <input type="text" id="rentabilidade">
-                </div>
-
-                <div class="form-box">
                     <label class="box-title" for="CDI">CDI (ao ano)</label>
                     <input type="text" id="CDI">
                 </div>
 
-                <div class="btn-container"> 
+                <div class="btn-container">
                     <input class="btn clear" type="button" id="limpar" value="Limpar campos">
                     <input class="btn submit" type="submit" id="simular" value="Simular">
                 </div>
+
             </form>
 
         </section>
@@ -143,7 +149,7 @@
     </div>
 
     <script src="./script.js"></script>
-    
+
 </body>
 
 </html>

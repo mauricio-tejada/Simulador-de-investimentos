@@ -30,9 +30,8 @@ h2 {
   background-color: #efefef;
   width: 100%;
   max-width: 1300px;
-  height: 580px;
+  height: 100vh;
   margin: 0 auto;
-  margin-top: 2%;
   display: -ms-grid;
   display: grid;
   grid-template: "h1 h1" 1fr "sec1 sec2" 6fr /4fr 6fr;
@@ -126,8 +125,21 @@ h2 {
   margin: 0;
 }
 
-#aporte-inicial:invalid {
-  background-color: aqua;
+.form-box span {
+  opacity: 0;
+}
+
+.error input[type="text"] {
+  border-bottom: 1.2px solid #ef2b2b;
+}
+
+.error span {
+  opacity: 1;
+}
+
+.error label, .error span {
+  color: #ef2b2b;
+  font-size: .8rem;
 }
 
 .box-title {
@@ -159,6 +171,10 @@ h2 {
 
 .submit {
   background-color: #969696;
+}
+
+.submit-ok {
+  background-color: #ed8e53;
 }
 
 .section-2 {
