@@ -1,100 +1,170 @@
-//arrays com os radios inputs
+
 const inputsIndexacao = document.getElementsByName('indexacao')
 inputsIndexacao[1].checked = true
 
 const inputsRendimento = document.getElementsByName('rendimento')
 inputsRendimento[0].checked = true
 
-//selecionando o radio selecionado
+const resultContainer = document.querySelector('.section-2')
+
 let indexacaoChecked = document.querySelector
     ('input[name="indexacao"]:checked')
 
 let rendimentoChecked = document.querySelector
     ('input[name="rendimento"]:checked')
 
-
-//função que aplica a classe no parent
-function applyClass(e, className) {
-    if (Array.isArray(e) === true) {
-        e.forEach(e => {
+//aplica a classe no parent de um elemento ou de um array de elementos
+function applyClassOnParent(element, className) {
+    if (Array.isArray(element) === true) {
+        element.forEach(e => {
             e.parentNode.classList.add(`${className}`)
         })
     } else {
-        e.parentNode.classList.add(`${className}`)
+        element.parentNode.classList.add(`${className}`)
     }
 }
 
-
-//função que remove a classe do parent
-function removeClass(array, className) {
-    array.forEach(e => {
+//remove a classe do parent de cada elemento do array
+function removeClassFromParent(element, className) {
+    element.forEach(e => {
         e.parentNode.classList.remove(`${className}`)
     })
 }
 
-
-//função que aplica a classe no nó irmão
+//aplica a classe no nó irmão
 function applyClassNext(e, className) {
     e.nextElementSibling.classList.add(`${className}`)
 }
 
-//class='las' 'la-check'
-
-//função que remove a classe do nó irmão
+//remove a classe do nó irmão
 function removeClassNext(array, className) {
     array.forEach(e => {
         e.nextElementSibling.classList.remove(`${className}`)
     })
 }
 
+//aplicando a classe que insere o icone "checked" na label input radio selecionado
 applyClassNext(indexacaoChecked, 'la-check')
 applyClassNext(rendimentoChecked, 'la-check')
-applyClass(indexacaoChecked, 'checked')
-applyClass(rendimentoChecked, 'checked')
+
+//aplicando a classe com o estilo do input radio selecionado
+applyClassOnParent(indexacaoChecked, 'checked')
+applyClassOnParent(rendimentoChecked, 'checked')
 
 inputsIndexacao.forEach(e => {
     e.addEventListener('click', () => {
-        removeClass(inputsIndexacao, 'checked')
+        removeClassFromParent(inputsIndexacao, 'checked')
         removeClassNext(inputsIndexacao, 'la-check')
 
         indexacaoChecked = document.querySelector
             ('input[name="indexacao"]:checked')
 
         applyClassNext(indexacaoChecked, 'la-check')
-        applyClass(indexacaoChecked, 'checked')
+        applyClassOnParent(indexacaoChecked, 'checked')
     })
 })
 
 inputsRendimento.forEach(e => {
     e.addEventListener('click', () => {
-        removeClass(inputsRendimento, 'checked')
+        removeClassFromParent(inputsRendimento, 'checked')
         removeClassNext(inputsRendimento, 'la-check')
 
         rendimentoChecked = document.querySelector
             ('input[name="rendimento"]:checked')
 
         applyClassNext(rendimentoChecked, 'la-check')
-        applyClass(rendimentoChecked, 'checked')
+        applyClassOnParent(rendimentoChecked, 'checked')
     })
 })
 
-const inputs = Array.from(document.querySelectorAll('input[type="text"]'))
 
+
+const inputs = Array.from(document.querySelectorAll('input[type="text"]'))
 const submit = document.querySelector('input[type="submit"]')
 
-//função que valida um array de text inputs e retorna os vazios e NaN
-function inputValidate(array) {
-    let invalidInputs = []
-    array.forEach(e => {
+const indicadoresUrl = 'http://localhost:3000/indicadores'
+
+//elemento do card que receberá o valor recebido da API
+const cardsData = {
+    valorFinalBruto: document.getElementById('valorFinalBruto'),
+    aliquotaIR: document.getElementById('aliquotaIR'),
+    valorPagoIR: document.getElementById('valorPagoIR'),
+    valorFinalLiquido: document.getElementById('valorFinalLiquido'),
+    valorTotalInvestido: document.getElementById('valorTotalInvestido'),
+    ganhoLiquido: document.getElementById('ganhoLiquido')
+}
+
+//traz os indicadores da API e insere nos elementos correspondentes
+function getIndicadores() {
+    axios.get(indicadoresUrl)
+        .then(response => {
+
+            const ipcaValue = response.data[1].valor
+            IPCA.value = JSON.stringify(ipcaValue)
+
+            const cdiValue = response.data[0].valor
+            CDI.value = JSON.stringify(cdiValue)
+
+        })
+        .catch(error => console.log(error))
+}
+
+//faz a busca na API, filtrando pelos parametros fornecidos no formulario, e insere nos elementos correspondentes
+function getSimulacoes(indexacao, tipoRendimento) {
+
+    const url = `http://localhost:3000/simulacoes/?tipoIndexacao=${indexacao}&tipoRendimento=${tipoRendimento}`
+
+    axios.get(url)
+        .then(response => {
+
+            cardsData.valorFinalBruto.innerHTML = response.data[0].valorFinalBruto
+            cardsData.aliquotaIR.innerHTML = response.data[0].aliquotaIR
+            cardsData.valorPagoIR.innerHTML = response.data[0].valorPagoIR
+            cardsData.valorFinalLiquido.innerHTML = response.data[0].valorFinalLiquido
+            cardsData.valorTotalInvestido.innerHTML = response.data[0].valorTotalInvestido
+            cardsData.ganhoLiquido.innerHTML = response.data[0].ganhoLiquido
+
+        })
+
+        .catch(error => console.log(error))
+}
+
+//retorna os inputs vazios e NaN
+function invalidInputs(inputs) {
+    let invalids = []
+    inputs.forEach(e => {
         if ((e.value === '') || isNaN(e.value)) {
-            invalidInputs.push(e)
+            invalids.push(e)
         }
     })
-    return invalidInputs
+    return invalids
 }
+
+//valida se todos os inputs do formulario estao OK, retornando true ou false
+function allFormIsOk() {
+    if (invalidInputs(inputs).length > 0) {
+        return false
+    } else {
+        return true
+    }
+}
+
+function setDisplayVisible(element) {
+    element.style.display = 'block'
+}
+
+getIndicadores()
 
 submit.addEventListener('click', e => {
     e.preventDefault()
-    applyClass(inputValidate(inputs), 'error')
+
+    if (allFormIsOk() === false) {
+        applyClassOnParent(invalidInputs(inputs), 'error')
+
+    } else {
+        removeClassFromParent(inputs, 'error')
+        getSimulacoes(indexacaoChecked.id, rendimentoChecked.id)
+        setDisplayVisible(resultContainer)
+    }
 })
 
