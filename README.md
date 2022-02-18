@@ -8,10 +8,13 @@ O objetivo é construir um front-end para um Simulador de Investimentos seguindo
 
 ## Como executar
 
-* Acesse o repositório da aplicação, através deste [link](https://github.com/mauricio-tejada/Simulador-de-investimentos) e baixe os arquivos.<br>
-* No terminal execute o comando 
+* Baixe o repositório da aplicação, através deste [link](https://github.com/mauricio-tejada/Simulador-de-investimentos)
+* Através do seu terminal nstale todas as dependencias e inicie a API fake
 ```js 
+npm install
+
 json-server db.json
 ```
+* Abra o arquivo index.html
 
 
