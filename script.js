@@ -80,13 +80,16 @@ inputsRendimento.forEach(e => {
 
 
 
-
-
 const inputs = Array.from(document.querySelectorAll('input[type="text"]'))
 const submit = document.querySelector('input[type="submit"]')
 const clearBtn = document.getElementById('limpar')
 
 const indicadoresUrl = 'http://localhost:3000/indicadores'
+
+function formatToBRL(value) {
+    let formated = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    return formated
+}
 
 //elemento do card que receberá o valor recebido da API
 const cardsData = {
@@ -113,10 +116,6 @@ function getIndicadores() {
         .catch(error => console.log(error))
 }
 
-function formatToBRL(value) {
-    let formated = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-    return formated
-}
 
 //faz a busca na API, filtrando pelos parametros fornecidos no formulario, e insere nos elementos correspondentes
 function getSimulacoes(indexacao, tipoRendimento) {
@@ -185,5 +184,15 @@ submit.addEventListener('click', e => {
 
 clearBtn.addEventListener('click', e => {
     cleanInputs(inputs)
+})
+
+//verifica se todos os inputs estão ok a cada vez que um input perde o foco, 
+//quando todos estão ok aplica uma classe no botão submit
+inputs.forEach(e => {
+    e.addEventListener('focusout', () => {
+        if(allFormIsOk() === true) {
+            submit.classList.add('submit-ok')
+        }
+    })
 })
 

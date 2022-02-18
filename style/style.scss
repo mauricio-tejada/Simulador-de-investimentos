@@ -117,6 +117,16 @@ h2 {
 }
 
 
+.label-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    i:before {
+        align-self: flex-end;
+    }
+
+}
 
 .form-box {
     display: grid;
@@ -163,7 +173,7 @@ h2 {
     display: flex;
 }
 
-.btn {
+.btn, .btn:visited {
     font-weight: bold;
     cursor: pointer;
     width: 100%;
@@ -174,12 +184,12 @@ h2 {
     
 }
 
-.clear {
+.clear, .clear:focus {
     border: 1px solid black;
     margin-right: 10px;
 }
 
-.submit {
+.submit, .submit:focus {
     background-color: $bg-btn;
 }
 

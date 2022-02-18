@@ -16,7 +16,8 @@ O objetivo é construir um front-end para um Simulador de Investimentos seguindo
 
 # Como a aplicação funciona
 
-O usuário irá selecionar o tipo de rendimento e indexação e preencher o formulário. <br>Ao clicar em "Simular" será feita uma validação dos tipos de dados que estão nos campos, caso esteja tudo OK, será feito um GET na API fake, filtrando pelo tipo de rendimento e indexação que estão selecionados (os dados preenchidos nos campos de texto não são considerados).
+O usuário irá selecionar o tipo de rendimento e indexação e preencher o formulário. <br>Ao clicar em "Simular" será feita uma validação dos tipos de dados que estão nos campos, caso esteja tudo OK, será feito um GET na API fake, filtrando pelo tipo de rendimento e indexação que estão selecionados (os dados preenchidos nos campos de texto não são considerados).<br>
+Os dados retornados serão exibidos em um dashboard lateral.
 
 
 

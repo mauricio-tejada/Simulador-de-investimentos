@@ -29,7 +29,10 @@
                 <form class="form-container" name="form" action="">
 
                     <div class="form-box">
-                        <label class="box-title">Rendimento</label>
+                        <div class="label-box">
+                            <label class="box-title">Rendimento</label>
+                            <i class="las la-info-circle"></i>
+                        </div>
                         <div class="radio-container">
                             <div class="radio-box two-element">
                                 <input type="radio" name="rendimento" id="bruto">
@@ -46,7 +49,10 @@
                     </div>
 
                     <div class="form-box">
-                        <label class="box-title">Tipo de indexação</label>
+                        <div class="label-box">
+                            <label class="box-title">Tipo de indexação</label>
+                            <i class="las la-info-circle"></i>
+                        </div>
                         <div class="radio-container">
                             <div class="radio-box">
                                 <input type="radio" name="indexacao" id="pre">
@@ -59,7 +65,8 @@
                                 <label for="pos">POS</label>
                             </div>
                             <div class="radio-box">
-                                <input type="radio" name="indexacao" id="fixado">
+                            <!--o input FIXADO ficará indisponivel pois não ha valores com este filtro na API-->
+                                <input type="radio" name="indexacao" id="">
                                 <i class="las"></i>
                                 <label for="fixado">FIXADO</label>
                             </div>
