@@ -79,8 +79,12 @@ inputsRendimento.forEach(e => {
 
 
 
+
+
+
 const inputs = Array.from(document.querySelectorAll('input[type="text"]'))
 const submit = document.querySelector('input[type="submit"]')
+const clearBtn = document.getElementById('limpar')
 
 const indicadoresUrl = 'http://localhost:3000/indicadores'
 
@@ -94,7 +98,7 @@ const cardsData = {
     ganhoLiquido: document.getElementById('ganhoLiquido')
 }
 
-//traz os indicadores da API e insere nos elementos correspondentes
+//traz os indicadores da API, que serão pré-carregados, e insere nos elementos correspondentes
 function getIndicadores() {
     axios.get(indicadoresUrl)
         .then(response => {
@@ -109,6 +113,11 @@ function getIndicadores() {
         .catch(error => console.log(error))
 }
 
+function formatToBRL(value) {
+    let formated = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    return formated
+}
+
 //faz a busca na API, filtrando pelos parametros fornecidos no formulario, e insere nos elementos correspondentes
 function getSimulacoes(indexacao, tipoRendimento) {
 
@@ -117,12 +126,12 @@ function getSimulacoes(indexacao, tipoRendimento) {
     axios.get(url)
         .then(response => {
 
-            cardsData.valorFinalBruto.innerHTML = response.data[0].valorFinalBruto
-            cardsData.aliquotaIR.innerHTML = response.data[0].aliquotaIR
-            cardsData.valorPagoIR.innerHTML = response.data[0].valorPagoIR
-            cardsData.valorFinalLiquido.innerHTML = response.data[0].valorFinalLiquido
-            cardsData.valorTotalInvestido.innerHTML = response.data[0].valorTotalInvestido
-            cardsData.ganhoLiquido.innerHTML = response.data[0].ganhoLiquido
+            cardsData.valorFinalBruto.innerHTML = formatToBRL(response.data[0].valorFinalBruto)
+            cardsData.aliquotaIR.innerHTML = response.data[0].aliquotaIR + '%'
+            cardsData.valorPagoIR.innerHTML = formatToBRL(response.data[0].valorPagoIR)
+            cardsData.valorFinalLiquido.innerHTML = formatToBRL(response.data[0].valorFinalLiquido)
+            cardsData.valorTotalInvestido.innerHTML = formatToBRL(response.data[0].valorTotalInvestido)
+            cardsData.ganhoLiquido.innerHTML = formatToBRL(response.data[0].ganhoLiquido)
 
         })
 
@@ -153,6 +162,12 @@ function setDisplayVisible(element) {
     element.style.display = 'block'
 }
 
+function cleanInputs(inputs) {
+    inputs.forEach(e => {
+        e.value = ''
+    })
+}
+
 getIndicadores()
 
 submit.addEventListener('click', e => {
@@ -166,5 +181,9 @@ submit.addEventListener('click', e => {
         getSimulacoes(indexacaoChecked.id, rendimentoChecked.id)
         setDisplayVisible(resultContainer)
     }
+})
+
+clearBtn.addEventListener('click', e => {
+    cleanInputs(inputs)
 })
 
