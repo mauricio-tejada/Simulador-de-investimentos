@@ -6,11 +6,12 @@ O objetivo é construir um front-end para um Simulador de Investimentos, que con
 
 # Como executar
 
+Para executar a aplicação será necessário baixar dois repositórios, o da API e o da aplicação.
 ## Iniciando a API fake
-* A API fake está disponível neste [link](https://github.com/eqi-investimentos/desafio-fake-api), baixe e inicie a API seguindo as instruções que estão no repositório.
+ A API fake está disponível neste [link](https://github.com/eqi-investimentos/desafio-fake-api)<br> Baixe o repositório, instale as dependencias e inicie a API seguindo as instruções que estão no repositório.
 
 ## Executando a aplicação
-* Baixe este repositório e, após ter iniciado a API, execute o arquivo index.
+ Baixe este repositório e, após ter iniciado a API, execute o arquivo index.
 
 # Como a aplicação funciona
 
